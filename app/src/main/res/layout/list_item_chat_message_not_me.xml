@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.antigravitystudios.flppd.models.realm.RealmChatMessage" />
+
+        <import type="com.antigravitystudios.flppd.Utils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="56dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chat_not_me"
+            android:padding="8dp"
+            android:text="@{item.message}"
+            android:textColor="#202C39"
+            android:textSize="14sp"
+            tools:text="LAst message text messe text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:text="@{Utils.getDateTimeString((long) safeUnbox(item.time) / 10000)}"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            tools:text="11:04 AM" />
+
+    </LinearLayout>
+
+</layout>

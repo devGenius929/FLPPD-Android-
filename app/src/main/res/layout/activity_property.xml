@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.antigravitystudios.flppd.ui.property.PropertyViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.loading ? View.INVISIBLE : View.VISIBLE}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F5F5F5"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/Base.ThemeOverlay.AppCompat.Light" />
+
+                <com.antigravitystudios.flppd.LandscapeRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:background="#555555">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:pagerAdapter="@{viewModel.pagerAdapter}" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="16dp"
+                        android:background="@drawable/backgroud_curved_borders"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:visibility="@{viewModel.noImages ? View.GONE : View.VISIBLE}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_weight="1"
+                            android:text="@={viewModel.photosText}"
+                            android:textColor="#fff"
+                            tools:text="1 of 5" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="6dp"
+                            app:srcCompat="@drawable/ic_image_white" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="12dp"
+                        android:onClick="@{() -> viewModel.onStarClicked()}"
+                        android:src="@{viewModel.starred ? @drawable/ic_star : @drawable/ic_star_off}"
+                        tools:src="@drawable/ic_star" />
+
+                </com.antigravitystudios.flppd.LandscapeRelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@{viewModel.property.street}"
+                        android:textColor="#202C39"
+                        android:textSize="24sp"
+                        tools:text="Street" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="@{viewModel.property.city + `, ` + viewModel.property.state + ` ` + viewModel.property.zip_code}"
+                        android:textColor="#202C39"
+                        android:textSize="18sp"
+                        tools:text="Los Angeles, CA 12345" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="@{viewModel.property.nbeds + ` beds  •  ` + viewModel.property.nbath + ` baths  •  `+ viewModel.property.sqft +` sqft`}"
+                        android:textColor="#18212B"
+                        android:textSize="15sp"
+                        tools:text="4 beds  •  4 baths  •  3,748 sqft" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/posted_by"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Posted by"
+                            android:textColor="#A7A2A9"
+                            android:textSize="15sp"
+                            tools:text="Posted by" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_toRightOf="@id/posted_by"
+                            android:text="@{viewModel.property.user.firstName + ` ` + viewModel.property.user.lastName}"
+                            android:textColor="#388E3C"
+                            android:textSize="15sp"
+                            tools:text="Georgia Hanson" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/posted_by"
+                            android:text="@{viewModel.property.pubDate}"
+                            android:textColor="#A7A2A9"
+                            android:textSize="15sp"
+                            tools:text="12:30 AM, 24 Mar 2017" />
+
+                        <ImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_alignParentRight="true"
+                            android:onClick="@{() -> viewModel.onAvatarClick()}"
+                            app:imageScale="@{`centerCrop`}"
+                            app:imageTransform="@{`circle`}"
+                            app:imageUrl="@{viewModel.property.user.avatar}" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Description"
+                        android:textColor="#A7A2A9"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.property.description}"
+                        android:textColor="#202C39"
+                        android:textSize="15sp"
+                        tools:text="DescriptionDe scriptionD escriptionDescription Description by" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                </LinearLayout>
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.antigravitystudios.flppd.WorkaroundMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:cameraZoom="15" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

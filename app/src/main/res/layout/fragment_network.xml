@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.antigravitystudios.flppd.ui.network.NetworkViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp"
+            android:scrollbars="vertical"
+            android:visibility="@{viewModel.searching ? View.VISIBLE : View.GONE}"
+            app:adapter="@{viewModel.connectionsSearchingAdapter}"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.loading || viewModel.searching ? View.GONE : View.VISIBLE}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingBottom="8dp"
+                    android:scrollbars="vertical"
+                    app:adapter="@{viewModel.connectionsPendingAdapter}"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingBottom="8dp"
+                    android:scrollbars="vertical"
+                    app:adapter="@{viewModel.connectionsWaitingAdapter}"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingBottom="8dp"
+                    android:scrollbars="vertical"
+                    app:adapter="@{viewModel.connectionsAdapter}"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

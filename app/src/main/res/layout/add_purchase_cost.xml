@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:errorTextAppearance="@style/Error">
+
+        <android.support.design.widget.TextInputEditText
+
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="16sp" />
+
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        app:errorTextAppearance="@style/Error">
+
+        <android.support.design.widget.TextInputEditText
+
+            android:id="@+id/et_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Value"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+
+            android:textSize="16sp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/gray_border"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <Button
+            android:id="@+id/bt_set_amount"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Set Amount"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/bt_percent"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00ffffff"
+            android:gravity="center"
+            android:text="Percent"
+            android:textColor="@color/gray_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/layout_percent"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/gray_border"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <Button
+            android:id="@+id/bt_percent_of_price"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Of Price"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/bt_percent_of_loan"
+
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00ffffff"
+            android:gravity="center"
+            android:text="Of Loan"
+            android:textColor="@color/gray_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/gray_border"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <Button
+            android:id="@+id/bt_pay_upfront"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Pay Upfront"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/bt_wrap_into_loan"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00ffffff"
+            android:gravity="center"
+            android:text="Wrap into Loan"
+            android:textColor="@color/gray_text" />
+    </LinearLayout>
+
+</LinearLayout>

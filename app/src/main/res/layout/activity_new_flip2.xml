@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Evaluate.NewFlip2.NewFlipActivity">
+
+    <ScrollView
+        android:layout_marginTop="?attr/actionBarSize"
+        android:theme="@style/colorControlActivatedGreen"
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true">
+
+
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                app:errorTextAppearance="@style/Error">
+
+                <android.support.design.widget.TextInputEditText
+
+                    android:id="@+id/et_nickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nickname"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="16sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Copy saved property"
+                    android:textColor="#000" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/copy_switch"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+
+                </android.support.v7.widget.SwitchCompat>
+
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:visibility="gone"
+                android:id="@+id/spinner"
+                android:paddingLeft="0dp"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:gravity="start"
+                android:layout_height="50dp">
+
+
+            </android.support.v7.widget.AppCompatSpinner>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Photos"
+                android:textSize="16sp"
+                android:textColor="@color/green_dark_text"
+                android:textStyle="bold" />
+
+            <include layout="@layout/new_property_photos" />
+
+            <TextView
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Address"
+                android:textColor="@color/green_dark_text"
+                android:textStyle="bold" />
+
+            <include layout="@layout/new_property_address" />
+
+            <TextView
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Details"
+                android:textColor="@color/green_dark_text"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:errorTextAppearance="@style/Error">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_property_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Property type"
+                        android:inputType="textCapWords" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:errorTextAppearance="@style/Error">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_bedrooms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Bedrooms"
+                        android:inputType="textCapWords" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:errorTextAppearance="@style/Error">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_bathrooms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Bathrooms"
+                        android:inputType="textCapWords" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:errorTextAppearance="@style/Error">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_sqft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Square Footage"
+                        android:inputType="textCapWords" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:errorTextAppearance="@style/Error">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_year_built"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Year Built"
+                        android:inputType="textCapWords" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:errorTextAppearance="@style/Error">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_parking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Parking"
+                        android:inputType="textCapWords" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:errorTextAppearance="@style/Error">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_lot_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Lot Size"
+                        android:inputType="textCapWords" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:errorTextAppearance="@style/Error">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_zoning"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Zoning"
+                        android:inputType="textCapWords" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+            <TextView
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Description"
+                android:textColor="@color/green_dark_text"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:ems="10"
+                android:hint="Type something about this porperty"
+                android:gravity="top"
+                android:inputType="textMultiLine" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:background="?attr/colorPrimary"/>
+
+</FrameLayout>

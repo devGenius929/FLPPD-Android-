@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.antigravitystudios.flppd.ui.tutorial.TutorialViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:pagerAdapter="@{viewModel.pagerAdapter}"
+            app:pagerListener="@{viewModel.pagerListener}" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabDots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabBackground="@drawable/tab_selector_inverse"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@{viewModel.lastPage ? @drawable/button_green : @drawable/button_accent}"
+            android:enabled="true"
+            android:gravity="center"
+            android:onClick="@{() -> viewModel.onNextClick()}"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:text="@{viewModel.lastPage ? @string/next : @string/skip}"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</layout>

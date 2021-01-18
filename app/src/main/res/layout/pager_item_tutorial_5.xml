@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/tutorial5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/text1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:gravity="center"
+        android:text="Investor Pro Membership"
+        android:textColor="#202C39"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:gravity="center"
+        android:text="Becoming an Investor Pro Member for only $9.99 gives Full Access to Exclusive Off Market Deals and All Customized Report Features. Want Maximum Exposure for your Off Market Deals? Turn them into Platinum Listings for Top Ranking"
+        android:textColor="#A7A2A9"
+        android:textSize="15sp" />
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.FullScreen">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.TranslucentStatusBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="ThemeSplash" parent="AppTheme.TranslucentStatusBar">
+        <item name="android:windowBackground">@drawable/loginbg</item>
+    </style>
+
+    <style name="ThemeBlurred" parent="AppTheme.TranslucentStatusBar">
+        <item name="android:windowBackground">@drawable/loginbgblurred</item>
+    </style>
+
+    <style name="ThemeMessenger" parent="AppTheme.TranslucentStatusBar">
+        <item name="android:windowBackground">@drawable/bg_messenger</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Error">
+        <item name="android:textColor">#FF9800</item>
+    </style>
+
+    <style name="colorControlActivatedGreen">
+        <item name="colorControlActivated">@color/green_dark_text</item>
+    </style>
+
+</resources>

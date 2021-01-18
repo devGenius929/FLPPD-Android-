@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword 'flppd_key'
+            storeFile file('C:/Iuriich/AndroidStudioProjects/FLPDD/flppd_key.jks')
+            storePassword 'flppd_key'
+        }
+    }
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "com.antigravitystudios.flppd"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 9
+        versionName "1.8"
+        def appFileName = "flppd"
+        setProperty("archivesBaseName", "$appFileName - $versionName($versionCode)")
+        signingConfig signingConfigs.config
+    }
+    buildTypes {
+        release {
+            //debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    packagingOptions {
+        exclude 'version.properties'
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:cardview-v7:27.1.0'
+    implementation 'com.android.support:customtabs:27.1.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.0'
+    implementation 'com.android.support:design:27.1.0'
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:support-v4:27.1.0'
+    implementation 'com.google.android.gms:play-services-maps:12.0.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'io.realm:android-adapters:2.1.1'
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.klinkerapps:link_builder:1.6.1'
+    implementation 'com.facebook.android:facebook-login:4.29.0'
+    implementation 'org.apmem.tools:layouts:1.10@aar'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.0'
+    implementation 'com.filestack:filestack-java:0.6.0'
+    implementation 'com.pubnub:pubnub-gson:4.18.0'
+    implementation 'com.google.firebase:firebase-messaging:12.0.0'
+    implementation 'com.android.billingclient:billing:1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar') {
+        transitive = true
+    }
+}
+apply plugin: 'com.google.gms.google-services'

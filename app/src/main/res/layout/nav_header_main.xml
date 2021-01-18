@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.antigravitystudios.flppd.ui.main.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            tools:background="@color/colorPrimary">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:imageScale="@{`centerCrop`}"
+                app:imageTransform="@{`circle`}"
+                app:imageUrl="@{viewModel.user.avatar}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.user.firstName + ` ` + viewModel.user.lastName}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="Name" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{viewModel.user.city != null &amp;&amp; viewModel.user.state != null ? viewModel.user.city + `, ` + viewModel.user.state : ``}"
+                    android:textSize="12sp"
+                    tools:text="location" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3B4551" />
+
+    </LinearLayout>
+</layout>

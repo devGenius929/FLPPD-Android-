@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.antigravitystudios.flppd.models.realm.RealmChatChannel" />
+
+        <import type="com.antigravitystudios.flppd.Utils" />
+        <import type="android.graphics.Color" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:background="@{item.read ? Color.parseColor(`#FFFFFF`) : Color.parseColor(`#F4F2E8`)}">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            app:imageScale="@{`centerCrop`}"
+            app:imageTransform="@{`circle`}"
+            app:imageUrl="@{item.user.avatar}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/avatar"
+            android:text="@{item.user.name}"
+            android:textColor="#202C39"
+            android:textSize="16sp"
+            tools:text="Douglas Myers" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="14dp"
+            android:text="@{Utils.getDateTimeString((long) safeUnbox(item.time) / 10000)}"
+            android:textColor="#A7A2A9"
+            android:textSize="13sp"
+            tools:text="11:04 AM" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/avatar"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="38dp"
+            android:layout_toRightOf="@id/avatar"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{item.lastMessage ?? `image`}"
+            android:textColor="#A7A2A9"
+            android:textSize="13sp"
+            tools:text="LAst message text messsag ds s d e text message text message text message text message text" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#cccccc" />
+
+    </RelativeLayout>
+
+</layout>

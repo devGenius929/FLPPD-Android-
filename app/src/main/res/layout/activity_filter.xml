@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.antigravitystudios.flppd.ui.explore.FilterViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f5f5f5"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Light" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/filtering"
+                        android:textColor="@color/green_dark_text"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{() -> viewModel.onClearAllClick()}"
+                        android:padding="4dp"
+                        android:text="@string/clear_all"
+                        android:textColor="#e53a36"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Type"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/deal_types"
+                        app:selectedValue="@={viewModel.propertiesFilter.type}" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="City"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="textCapWords"
+                        android:maxLines="1"
+                        android:paddingEnd="8dp"
+                        android:text="@={viewModel.propertiesFilter.city}"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="State"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="textCapWords"
+                        android:maxLines="1"
+                        android:paddingEnd="8dp"
+                        android:text="@={viewModel.propertiesFilter.state}"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Zip"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="textCapCharacters"
+                        android:maxLines="1"
+                        android:paddingEnd="8dp"
+                        android:text="@={viewModel.propertiesFilter.zipcode}"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Minimum price"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:paddingEnd="8dp"
+                        android:text="@={viewModel.propertiesFilter.price_min}"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Maximum price"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:paddingEnd="8dp"
+                        android:text="@={viewModel.propertiesFilter.price_max}"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

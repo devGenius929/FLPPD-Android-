@@ -1,0 +1,153 @@
+<resources>
+    <string name="facebook_app_id" translatable="false">1988589481428436</string>
+    <string name="filestack_key" translatable="false">Ah3czlUD8RhzVHXoMTxNIz</string>
+    <string name="filestack_domain" translatable="false">https://cdn.filestackcontent.com/</string>
+    <string name="terms_and_conditions_url" translatable="false">http://willggrd.wixsite.com/flppdapp/privacy-policy</string>
+
+    <string name="app_name">FLPPD</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="by_tapping_sign_in_you_agree_with">By tapping SIGN IN you agree with</string>
+    <string name="by_tapping_sign_up_you_agree_with">By tapping SIGN UP you agree with</string>
+
+    <string name="email">Email</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="password">Password</string>
+    <string name="please_enter_your_email_address_and_password">Please enter your email address and password.</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="create_account">Create account</string>
+    <string name="creating_account">Creating account</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_with_facebook">SIGN UP WITH FACEBOOK</string>
+    <string name="welcome_to_flppd_please_choose_one_of_the_options_below">Welcome to FLPPD. Please choose one of the options below.</string>
+    <string name="don_t_have_account">Don\'t have account?</string>
+    <string name="remember_me">Remember me</string>
+    <string name="invalid_password">Invalid password</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="send">Send</string>
+    <string name="please_verify_your_phone_number">Please verify your phone number so you can recover your account if you forget your password</string>
+    <string name="phonenumber">Phone Number</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="please_enter_your_name_in_fields_below">Please enter your name in fields below.</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="password_again">Password Again</string>
+    <string name="please_enter_your_contact_information">Please enter your contact information.</string>
+    <string name="invalid_first_name">Invalid first name</string>
+    <string name="invalid_last_name">Invalid last name</string>
+    <string name="invalid_phonenumber">Invalid phonenumber</string>
+    <string name="passwords_are_not_equal">Passwords are not equal</string>
+    <string name="tab_list">LIST</string>
+    <string name="tab_map">MAP</string>
+    <string name="explore">Explore</string>
+    <string name="filtering">Filtering</string>
+    <string name="clear_all">CLEAR ALL</string>
+    <string name="glossary">Glossary</string>
+    <string name="my_listings">My Listings</string>
+    <string name="saved_listings">Saved Listings</string>
+    <string name="street">Street</string>
+    <string name="messages">Messages</string>
+    <string name="network">Network</string>
+
+    <string-array name="listing_types">
+        <item>Basic (Free)</item>
+        <item>Platinum (25$)</item>
+    </string-array>
+
+    <string-array name="deal_types">
+        <item></item>
+        <item>Rental</item>
+        <item>Flip</item>
+    </string-array>
+
+    <string-array name="user_roles">
+        <item></item>
+        <item>Wholesaler</item>
+        <item>Investor</item>
+        <item>Builder</item>
+        <item>Remodeler</item>
+        <item>Realtor</item>
+        <item>Consumer</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="parking_types">
+        <item></item>
+        <item>Attached Garage</item>
+        <item>Detached Garage</item>
+        <item>Oversized Garage</item>
+        <item>Attached/Detached Garage</item>
+        <item>Tandem</item>
+        <item>No Parking</item>
+        <item>Parking Lot</item>
+    </string-array>
+
+    <string-array name="property_types">
+        <item></item>
+        <item>Single Family</item>
+        <item>TownHouse/Condo</item>
+        <item>Lot</item>
+        <item>Multi-Family</item>
+        <item>Country Homes/Acreage</item>
+        <item>Mid/Hi-Rise Condo</item>
+    </string-array>
+
+    <string-array name="beds_types">
+        <item></item>
+        <item>0</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>2.5</item>
+        <item>3</item>
+        <item>3.5</item>
+        <item>4</item>
+        <item>4.5</item>
+        <item>5</item>
+        <item>5.5</item>
+        <item>6</item>
+        <item>6.5</item>
+        <item>7</item>
+        <item>7.5</item>
+        <item>8</item>
+        <item>8.5</item>
+        <item>9</item>
+        <item>9.5</item>
+        <item>10+</item>
+    </string-array>
+
+    <string-array name="baths_types">
+        <item></item>
+        <item>0</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>2.5</item>
+        <item>3</item>
+        <item>3.5</item>
+        <item>4</item>
+        <item>4.5</item>
+        <item>5</item>
+        <item>5.5</item>
+        <item>6</item>
+        <item>6.5</item>
+        <item>7</item>
+        <item>7.5</item>
+        <item>8</item>
+        <item>8.5</item>
+        <item>9</item>
+        <item>9.5</item>
+        <item>10+</item>
+    </string-array>
+
+    <string-array name="zoning_types">
+        <item></item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+</resources>

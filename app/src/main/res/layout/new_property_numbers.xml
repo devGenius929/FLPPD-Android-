@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:textColor="@color/green_dark_text"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/et_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0$"
+        android:inputType="numberDecimal"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="After Repair Value"
+        android:textColor="@color/green_dark_text"
+        android:textSize="16sp"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/et_arv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0$"
+        android:inputType="numberDecimal"
+        android:visibility="visible" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rehab Cost"
+        android:textColor="@color/green_dark_text"
+        android:textSize="16sp"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/et_rehab_cost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0$"
+        android:inputType="numberDecimal"
+        android:visibility="visible" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rental Raitings"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0%"
+        android:inputType="textCapWords"
+        android:visibility="gone" />
+
+</LinearLayout>

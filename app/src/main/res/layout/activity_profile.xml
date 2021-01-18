@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.antigravitystudios.flppd.ui.profile.ProfileViewModel" />
+
+        <import type="android.view.View" />
+        <import type="com.antigravitystudios.flppd.BillingManager" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.loading ? View.INVISIBLE : View.VISIBLE}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?attr/actionBarSize"
+                        android:theme="?attr/actionBarTheme" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="16dp"
+                        android:onClick="@{() -> viewModel.onEditClick()}"
+                        android:src="@drawable/ic_edit"
+                        android:visibility="@{viewModel.isMe ? View.VISIBLE : View.GONE}" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="32dp"
+                        android:layout_marginTop="24dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            app:imageScale="@{`centerCrop`}"
+                            app:imageTransform="@{`circle`}"
+                            app:imageUrl="@{viewModel.user.avatar}"
+                            tools:srcCompat="@drawable/circle_enabled" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{viewModel.user.firstName + ` ` + viewModel.user.lastName}"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp"
+                            tools:text="Manuel Salas" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@{viewModel.user.city != null &amp;&amp; viewModel.user.state != null ? viewModel.user.city + `, ` + viewModel.user.state : ``}"
+                            android:textColor="#A7A2A9"
+                            android:textSize="16sp"
+                            tools:text="Pensacola, FL" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/bg_transparent_bordered_white_cornered"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:text="@{viewModel.user.role}"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            tools:text="Investor" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_alignParentBottom="true"
+                        app:srcCompat="@drawable/square_rounded_top" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/button_green"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:onClick="@{() -> viewModel.onUpgradeClick()}"
+                        android:visibility="@{viewModel.isMe &amp;&amp; !BillingManager.isSubscriptionActive ? View.VISIBLE : View.GONE}">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1"
+                            android:text="Upgrade to Pro"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="#FFFFFF" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_right_white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Ranking"
+                            android:textColor="#A7A2A9"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Houses sold"
+                            android:textColor="#A7A2A9"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.user.rank}"
+                            android:textColor="#202C39"
+                            android:textSize="24sp"
+                            tools:text="Average" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.user.hausesSold + ` Houses`}"
+                            android:textColor="#202C39"
+                            android:textSize="24sp"
+                            tools:text="89 Houses" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="About"
+                        android:textColor="@color/gray_text"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@{viewModel.user.about}"
+                        android:textColor="#202C39"
+                        tools:text="Once in a life time opportunity to own one of the best views in Seattle built with 4 Star Green certification. This modern gem features captivating 200+degree views up..." />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Areas"
+                        android:textColor="@color/gray_text"
+                        android:textSize="16sp" />
+
+                    <org.apmem.tools.layouts.FlowLayout
+                        android:id="@+id/areasContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Info"
+                        android:textColor="@color/gray_text"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Member since:"
+                            android:textColor="#202C39" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.user.createdAt}"
+                            android:textColor="#202C39"
+                            tools:text="14 Apr 2011" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Email:"
+                            android:textColor="#202C39" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.user.email}"
+                            android:textColor="#202C39"
+                            tools:text="sample@gmail.com" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Phone:"
+                            android:textColor="#202C39" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.user.phoneNumber}"
+                            android:textColor="#202C39"
+                            tools:text="(123) 456 7890" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:text="Connections"
+                        android:textColor="@color/gray_text"
+                        android:textStyle="bold" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:scrollbars="horizontal"
+                        app:adapter="@{viewModel.connectionsAdapter}"
+                        app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:text="User Listings"
+                        android:textColor="@color/gray_text"
+                        android:textStyle="bold" />
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/propertiesPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:clipToPadding="false"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="60dp"
+                        app:pagerAdapter="@{viewModel.propertiesPagerAdapter}" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="#ddd" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:visibility="@{viewModel.isMe ? View.GONE : View.VISIBLE}">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_accent"
+                            android:onClick="@{() -> viewModel.onSendMessageClick()}"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="SEND A MESSAGE"
+                            android:textColor="#fff" />
+
+                        <!--                    <Button
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="40dp"
+                                                android:layout_gravity="center_vertical"
+                                                android:background="@drawable/button_connect_enabled"
+                                                android:paddingLeft="10dp"
+                                                android:paddingRight="10dp"
+                                                android:text="Connect"
+                                                android:textColor="@color/green_dark_text" />-->
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

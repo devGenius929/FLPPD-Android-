@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.antigravitystudios.flppd.ui.explore.ExploreMapViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cameraZoom="10" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/propertiesPager"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:clipToPadding="false"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            app:pagerAdapter="@{viewModel.propertiesPagerAdapter}" />
+
+    </RelativeLayout>
+
+</layout>
